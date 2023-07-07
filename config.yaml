@@ -1,0 +1,20 @@
+device: cpu
+
+arcface:
+  weight_path: D:/workspace/python/PROJECT_MAIN/data/demo/weight/arcFace/resnet18_110.pth
+  img_size: [128, 128]
+  use_se: False
+  use_faiss: True
+  threshold: 22
+  face_path: D:/workspace/python/PROJECT_MAIN/data/demo/coresets/face_coresets.pt
+  mask_path: D:/workspace/python/PROJECT_MAIN/data/demo/coresets/mask_coresets.pt
+  face_faiss: D:/workspace/python/PROJECT_MAIN/data/demo/coresets/face_faiss_2.pt
+  mask_faiss: D:/workspace/python/PROJECT_MAIN/data/demo/coresets/mask_faiss_2.pt
+
+coresets:
+  face_root: D:/workspace/python/PROJECT_MAIN/data/celeb_faces_v1/testing/not_mask2
+  mask_root: D:/workspace/python/PROJECT_MAIN/data/celeb_faces_v1/testing/mask2
+
+root_normalize: D:/datasets/celeb-100-crop/Mask/Valid
+
+root_test: D:/workspace/python/PROJECT_MAIN/data/celeb_faces_v1/embedding/not_mask8
