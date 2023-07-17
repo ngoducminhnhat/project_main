@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>YOLO-Object Detection</title>
+    <title>Nhận diện khuôn mặt</title>
     <link rel="stylesheet" type="text/css" href="../static/index.css" />
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -9,14 +9,6 @@
       crossorigin="anonymous">
 
   </script>
-  <script>
-    $('#opencam').click( function() {
-      console.log("AAAAAAAAAAAAAAAAAAAAAA")
-      const sample = require('C:/Users/nhtng/OneDrive/Desktop/flask/yolov7/sample.json');
-      console.log("sample", sample)
-    })
-  </script>
-
     <script type="text/javascript" src="../static/index.js"></script>
   </head>
   <body>
@@ -27,14 +19,27 @@
           <img src="http://ete.dut.udn.vn/theme/images/logo.jpg" alt="">
         </div>
         <p class="heading">PHÂN LOẠI ĐEO KHẨU TRANG TỪ ĐÓ NHẬN DIỆN DANH TÍNH KHUÔN MẶT TRONG RA VÀO CHUNG CƯ</p>
-        <!-- <a href="http://127.0.0.1:5500/templates/register.html">go register</a> -->
-        <video width="600" height="400" controls>
-          <source src="/static/video_1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <button  name="cam" class="button" id="opencam">Mở camera</button>
-        <br/>
-        <!-- <video id="videoElement" autoplay></video> -->
+          <div id="key"></div>
+          <div id="value"></div>
+          <br/>
+          <div class="contain" >
+            <button  name="cam" class="button" id="opencam">Mở camera</button>
+            <button class="button" id="cancelButton">Hủy</button>
+          </div>
+        <script>
+            // Xử lý sự kiện khi nút "Hủy" được bấm
+            document.getElementById('cancelButton').addEventListener('click', function () {
+                // Gửi yêu cầu đến máy chủ để dừng ứng dụng
+                fetch('/stop')
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch(error => {
+                        console.error('Đã xảy ra lỗi:', error);
+                    });
+            });
+        </script>
         <hr class="line" />
       </header>
     </div>

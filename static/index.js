@@ -29,22 +29,17 @@ window.onload = () => {
     }
   });
   $("#opencam").click(() => {
-    // $.ajax({
-    //   url: "/opencam",
-    //   type: "GET",
-    //   error: function (data) {
-    //     console.log("upload error", data);
-    //   },
-    //   success: function (data) {
-    //     console.log(data);
-    //   }
-    // });
-
-    fetch("../sample.json")
-      .then(response => response.json())
-      .then(json => console.log(json));
-
-
+    console.log("evoked openCam");
+    $.ajax({
+      url: "/opencam",
+      type: "GET",
+      error: function (data) {
+        console.log("upload error", data);
+      },
+      success: function (data) {
+        console.log(data);
+      }
+    });
   })
 };
 
